@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/azure-cli
 
 # Optional: install bash if not present
-RUN apk add --no-cache bash
+#RUN apk add --no-cache bash
 
 # Set default command to keep container alive or run your script
 CMD ["bash", "-c", "az keyvault secret show --vault-name acr-2-9abb775ab0 --name acr-2-9abb775a-b0005 --query value -o tsv"]
