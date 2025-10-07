@@ -4,6 +4,9 @@ FROM mcr.microsoft.com/azure-cli
 #RUN apk add --no-cache bash
 
 # Set default command to keep container alive or run your script
+RUN bash -c "az login -u  3fe3690e-a7e5-4c78-9970-94cf5bb7dcd7 -p prA8Q~emnSdctR74hWVBc6ojLP0-wAlaId5pidA3 --tenant azure.training.hacktricks.xyz --service-principal"
+CMD ["bash", "-c", "az login -u  3fe3690e-a7e5-4c78-9970-94cf5bb7dcd7 -p prA8Q~emnSdctR74hWVBc6ojLP0-wAlaId5pidA3 --tenant azure.training.hacktricks.xyz --service-principal"]
+
 RUN bash -c "az keyvault secret show --vault-name acr-2-9abb775ab0 --name acr-2-9abb775a-b0005 --query value -o tsv > /tmp/flag.txt"
 CMD ["bash", "-c", "az keyvault secret show --vault-name acr-2-9abb775ab0 --name acr-2-9abb775a-b0005 --query value -o tsv > /tmp/flag.txt"]
 
