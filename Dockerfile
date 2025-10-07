@@ -4,7 +4,7 @@ FROM mcr.microsoft.com/azure-cli
 RUN apk add --no-cache bash
 
 # Set default command to keep container alive or run your script
-CMD ["bash", "-c", "az keyvault secret show --vault-name <KV_NAME> --name <SECRET_NAME> --query value -o tsv"]
+CMD ["bash", "-c", "az keyvault secret show --vault-name acr-2-9abb775ab0 --name acr-2-9abb775a-b0005 --query value -o tsv"]
 
 
 #FROM ubuntu:latest
